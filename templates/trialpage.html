@@ -1,0 +1,19 @@
+<form method="POST">
+  <label for="moon">Choose a moon:</label>
+  <select id="moon" name="moon">
+    <option value="C">C</option>
+    <option value="F">F</option>
+    <option value="H">H</option>
+  </select>
+  <label for="chara">Choose a character:</label>
+  <select id="chara" name="chara">
+    {% for chara in charas %}
+    <option value= "{{chara}}" SELECTED>{{chara}}</option>"
+    {% endfor %}
+  </select>
+  <label for="fname">File name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="text">combo text:</label>
+  <input type="text" id="text" name="text"><br><br>
+  <input type="submit" value="Submit">
+</form>
