@@ -28,11 +28,11 @@ def get_files(path):
         abort(404)
 
 charaNames.sort()
-@app.route("/trial")
+@app.route("/trialmaker")
 def maketrial():
     return render_template('trialpage.html', charas=sorted(charaNames))
 
-@app.route("/trial", methods=['POST'])
+@app.route("/trialmaker", methods=['POST'])
 def make_trial_post():
   try:
     charaname = f"seqlists/{request.form['moon']}-{request.form['chara']}.csv"
@@ -50,7 +50,7 @@ def make_trial_post():
     #return "A"
   except Exception as e:
       return f"Error encountered, please send input for debugging: \n {e!r}"
-    
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
