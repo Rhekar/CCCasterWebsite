@@ -3,8 +3,8 @@ from flask import Flask, send_file,send_from_directory, render_template, request
 from comboparser import *
 app = Flask(__name__)
 
-b = "d0c6d5c-custom"
-c = "Sat, Aug 21, 2021 12:19:03 PM"
+b = "06ff13c-custom"
+c = "Fri, Sep 17, 2021  1:53:28 AM"
 @app.route("/LatestVersion")
 def latest():
     return "3.1.001"
