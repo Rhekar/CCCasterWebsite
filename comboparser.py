@@ -114,8 +114,7 @@ charaNames = [
 "V.Sion",
 "Wara",
 "Roa",
-"Maids(Hisui)",
-"Maids(Kohaku)",
+"Maids",
 "Akiha",
 "Arc",
 "P.Ciel",
@@ -197,6 +196,8 @@ class ComboTransformer(Transformer):
                         hit = "1"
                     if hit == "No" or hit == "no":
                         hit = "0"
+                    if hit == "2" or hit == "Partner":
+                        hit = "2"
                     hitDict[name] = hit
         return seqDict, hitDict
 
@@ -409,7 +410,7 @@ class ComboTransformer(Transformer):
                 dispString += item
                 print( dispString )
                 print( moveString )
-                assert False
+                assert False, f"unexpected type in norm input: {item.type}"
         #trace()
         return [ dispString, self.seqDict[moveString],
                  self.hitDict[moveString] if not setHit else exhit,
@@ -511,11 +512,11 @@ def exportCombos( clist, fname ):
                     f.write("\n")
                     f.write(move[2])
                     f.write("\n")
-            except:
+            except Exception as e:
                 print( move )
                 print( comboText )
                 print( comboName )
-                assert False
+                assert False, f"Error when exporting: {e}"
 
 def exportComboFolder( clist, fname ):
     if not ( os.path.isdir(fname) ):
@@ -537,11 +538,11 @@ def exportComboFolder( clist, fname ):
                     f.write("\n")
                     f.write(move[2])
                     f.write("\n")
-            except:
+            except Exception as e:
                 print( move )
                 print( comboText )
                 print( comboName )
-                assert False
+                assert False, f"Error when exporting: {e}"
 
 def exportCombo( combo, folderPath="trials/" ):
     comboName = combo[0]
@@ -560,11 +561,11 @@ def exportCombo( combo, folderPath="trials/" ):
                 f.write("\n")
                 f.write(move[2])
                 f.write("\n")
-        except:
+        except Exception as e:
             print( move )
             print( comboText )
             print( comboName )
-            assert False
+            assert False, f"Error when exporting: {e}"
 
 def process( comboList, seqList, outputFolderName ):
     a = ComboTransformer( seqList )
