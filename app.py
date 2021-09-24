@@ -49,7 +49,7 @@ def make_trial_post():
     return send_from_directory("trials/", f"{comboName}.txt", as_attachment=True)
     #os.unlink( f"trials/{comboName}.txt" )
     #return "A"
-    except UnexpectedCharacters as e:
+  except UnexpectedCharacters as e:
       return f"Error encountered, please send input for debugging: <br/> {e._context} <br/> {e.considered_rules} <br/> {e.state}"
   except Exception as e:
       return f"Error encountered, please send input for debugging: \n {e!r}"
