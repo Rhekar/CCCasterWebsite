@@ -480,7 +480,7 @@ class ComboTransformer(Transformer):
         itemWithSpace = item[0] + " " + text
         item[0] += text
         if "whiff" in text:
-            items[0][2] = 0
+            items[0][2] = '0'
         if item[0] in self.seqDict:
             item[1] = self.seqDict[item[0]]
         if itemWithSpace in self.seqDict:
@@ -516,7 +516,7 @@ def exportCombos( clist, fname ):
                 print( move )
                 print( comboText )
                 print( comboName )
-                assert False, f"Error when exporting: {e}"
+                assert False, f"Error when exporting: {e}, {comboText}"
 
 def exportComboFolder( clist, fname ):
     if not ( os.path.isdir(fname) ):
@@ -542,7 +542,7 @@ def exportComboFolder( clist, fname ):
                 print( move )
                 print( comboText )
                 print( comboName )
-                assert False, f"Error when exporting: {e}"
+                assert False, f"Error when exporting: {e}, {comboText}"
 
 def exportCombo( combo, folderPath="trials/" ):
     comboName = combo[0]
@@ -565,7 +565,7 @@ def exportCombo( combo, folderPath="trials/" ):
             print( move )
             print( comboText )
             print( comboName )
-            assert False, f"Error when exporting: {e}"
+            assert False, f"Error when exporting: {e}, {comboText}"
 
 def process( comboList, seqList, outputFolderName ):
     a = ComboTransformer( seqList )
