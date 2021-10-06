@@ -4,20 +4,24 @@ from comboparser import *
 from lark import UnexpectedCharacters
 app = Flask(__name__)
 
-b = "a1d0721"
-c = "Thu, Sep 23, 2021 10:36:00 PM"
+
+b = "66b61ef"
+c = "Tue, Oct 05, 2021  6:42:41 PM"
+
+b2 = "a1d0721"
+c2 = "Thu, Sep 23, 2021 10:36:00 PM"
 @app.route("/LatestVersion")
 def latest():
-    return "3.1.001"
+    return "3.1.002"
 @app.route("/LatestVersionDev")
 def latestdev():
-    return f"3.1.001\n{b}\n{c}"
+    return f"3.1.002\n{b}\n{c}"
 @app.route("/PreviousVersion")
 def prev():
     return "3.1.001"
 @app.route("/PreviousVersionDev")
 def prevdev():
-    return f"3.1.001\n{b}\n{c}"
+    return f"3.1.001\n{b2}\n{c2}"
 
 DOWNLOAD_DIRECTORY = "caster/"
 @app.route('/cccaster<string:path>',methods = ['GET','POST'])
