@@ -278,6 +278,8 @@ class ComboTransformer(Transformer):
                     if direction == "5":
                         direction = ""
                     moveString = lastMoveString + "~" + direction + item.upper()
+                    if moveString == "6A~6A" and moveString not in self.seqDict:
+                        moveString = "6AA"
                     outputs.append( [dispString, self.seqDict[ moveString ], self.hitDict[ moveString ], moveString ] )
         print(outputs)
         return outputs
