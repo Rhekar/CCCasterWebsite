@@ -34,7 +34,7 @@ def get_files(path):
 
 charaNames.sort()
 @app.route("/trialmaker")
-def maketrial():
+def trialmaker():
     return render_template('trialpage.html', charas=sorted(charaNames))
 
 @app.route("/trialmaker", methods=['POST'])
