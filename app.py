@@ -60,7 +60,7 @@ def make_trial_post():
 
 @app.route("/")
 def main():
-    return '<a href="/trialmaker">trial maker</a>'
+    return render_template('homepage.html')
 
 @app.route("/robots.txt")
 def robotstxt():
