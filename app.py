@@ -12,13 +12,13 @@ b2 = "a1d0721"
 c2 = "Thu, Sep 23, 2021 10:36:00 PM"
 @app.route("/LatestVersion")
 def latest():
-    return "3.1.005"
+    return "3.1.006"
 @app.route("/LatestVersionDev")
 def latestdev():
     return f"3.1.002\n{b}\n{c}"
 @app.route("/PreviousVersion")
 def prev():
-    return "3.1.004"
+    return "3.1.005"
 @app.route("/PreviousVersionDev")
 def prevdev():
     return f"3.1.001\n{b2}\n{c2}"
