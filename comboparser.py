@@ -181,7 +181,7 @@ class ComboTransformer(Transformer):
         self.seqDict, self.hitDict = self.parseSeq( fname )
         self.inputs = 0
     def parseSeq( self, fname ):
-        seqDict = defaultdict(lambda: "-0")
+        seqDict = defaultdict(lambda: "0")
         hitDict = defaultdict(lambda: "1")
         with open( fname, 'r' ) as f:
             f.readline()
@@ -398,6 +398,7 @@ class ComboTransformer(Transformer):
             elif ( item.type == "HEAT"):
                 dispString += item
                 moveString += item
+                exhit = '0'
             elif ( item.type == "ARCDRIVE"):
                 dispString += item
                 moveString += item
