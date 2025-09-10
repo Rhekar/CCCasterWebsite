@@ -31,6 +31,7 @@ comboparser = Lark(r"""
                | THROW [ NOTES ]
                | series_input
                | HEAT [ NOTES ]
+               | IH [ NOTES ]
                | ARCDRIVE [ NOTES ]
     var_input : "(" input ")" "/" "(" input ")"
     opt_input : "|" input "|"
@@ -61,8 +62,8 @@ comboparser = Lark(r"""
 
     HEAT : "Heat" | "Heat"
     
-    IH :   "IH" | "Initiative Heat"
-                | "j.IH" | "Initiative Heat"
+    IH : "IH" | "Initiative Heat"
+       | "j.IH" | "Initiative Heat"
 
     ARCDRIVE : "AD" ["(~2)"] | "Arc Drive"
              | "AAD" | "Another Arc Drive"
