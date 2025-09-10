@@ -60,8 +60,9 @@ comboparser = Lark(r"""
              | "2" | "4" | "6" | "7" | "8" | "9"
 
     HEAT : "Heat" | "Heat"
-         | "IH" | "Initiative Heat"
-         | "j.IH" | "Initiative Heat"
+    
+    IH :   "IH" | "Initiative Heat"
+                | "j.IH" | "Initiative Heat"
 
     ARCDRIVE : "AD" ["(~2)"] | "Arc Drive"
              | "AAD" | "Another Arc Drive"
@@ -181,7 +182,7 @@ class ComboTransformer(Transformer):
         self.seqDict, self.hitDict = self.parseSeq( fname )
         self.inputs = 0
     def parseSeq( self, fname ):
-        seqDict = defaultdict(lambda: "0")
+        seqDict = defaultdict(lambda: "-0")
         hitDict = defaultdict(lambda: "1")
         with open( fname, 'r' ) as f:
             f.readline()
@@ -398,6 +399,10 @@ class ComboTransformer(Transformer):
             elif ( item.type == "HEAT"):
                 dispString += item
                 moveString += item
+            elif ( item.type == "IH"):
+                dispString += item
+                moveString += item
+                setHit = True
                 exhit = '0'
             elif ( item.type == "ARCDRIVE"):
                 dispString += item
